@@ -1,4 +1,29 @@
 Rainstorming::Application.routes.draw do
+ 
+ resources :users 
+
+ 
+ 
+ root to: 'pages#home'
+
+ match '/home',  to: 'pages#home'   
+
+  match '/registrati',  to: 'users#new' 
+  match '/login',       to: 'sessions#new'
+  match '/signout',     to: 'sessions#destroy', via: :delete
+  match '/settings',    to: '@users#edit', via: :edit
+  
+  match '/progetti', to: 'pages#progetti'  
+  match '/designers', to: 'users#index'  
+  match '/annunci', to: 'sessions#annunci'
+  
+  
+  match '/missioni', to: 'pages#missioni'  
+  match '/contatti', to: 'pages#contatti'  
+  match '/termini', to: 'pages#termini'  
+  match '/privacy', to: 'pages#privacy'
+  match '/sudinoi', to: 'pages#sudinoi'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
